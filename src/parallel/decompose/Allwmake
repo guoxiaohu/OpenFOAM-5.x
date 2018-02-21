@@ -54,6 +54,9 @@ fi
 # Try and build metisDecomp (has own logic)
 (cd metisDecomp && ./Allwmake $targetType)
 
+# Try and build parmetisDecomp (has own logic)
+(cd parmetisDecomp && ./Allwmake $targetType)
+
 wmake $targetType decompositionMethods
 wmake $targetType decompose
 

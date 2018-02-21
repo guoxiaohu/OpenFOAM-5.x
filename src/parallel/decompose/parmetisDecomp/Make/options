@@ -1,0 +1,14 @@
+sinclude $(GENERAL_RULES)/mplib$(WM_MPLIB)
+  
+EXE_INC = \
+    $(PFLAGS) $(PINC) \
+    -I../decompositionMethods/lnInclude \ 
+    -I$(METIS_ARCH_PATH)/include \
+    -I$(PARMETIS_ARCH_PATH)/include \
+    -I../metisDecomp/lnInclude
+         
+LIB_LIBS = \
+    -L$(METIS_ARCH_PATH)/lib -lmetis\
+    -L$(PARMETIS_ARCH_PATH)/lib -lparmetis\
+    -ldecompositionMethods \
+    -lmetisDecomp 

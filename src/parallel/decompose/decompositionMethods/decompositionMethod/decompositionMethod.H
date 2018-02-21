@@ -59,6 +59,7 @@ protected:
         //- Optional constraints
         PtrList<decompositionConstraint> constraints_;
 
+
 private:
 
     // Private Member Functions
@@ -205,6 +206,34 @@ public:
 
 
         // Other
+
+            //- Helper to convert connectivity supplied as cellCells into
+            //  simple CSR (Metis, scotch) storage
+            static void calcCSR
+            (
+            const labelListList& globalCellCells,
+            List<int>& adjncy,
+            List<int>& xadj
+            );
+
+            //- Helper: convert local connectivity from the mesh
+            //  into CSR (Metis, scotch) storage
+            //  Treats cyclics as coupled, but not processor patches
+            static void calcCSR
+            (
+            const polyMesh& mesh,
+            List<int>& adjncy,
+            List<int>& xadj
+            );
+
+            //- Helper: convert mesh connectivity into distributed CSR
+            //  Very dubious coding.  HJ, 1/Mar/2011
+            static void calcDistributedCSR
+            (
+            const polyMesh&,
+            List<int>& adjncy,
+            List<int>& xadj
+            );
 
             //- Helper: determine (local or global) cellCells from mesh
             //  agglomeration. Agglomeration is local to the processor.

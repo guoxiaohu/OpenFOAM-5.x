@@ -1,0 +1,3 @@
+parmetisDecomp.C
+
+LIB = $(FOAM_LIBBIN)/libparmetisDecomp

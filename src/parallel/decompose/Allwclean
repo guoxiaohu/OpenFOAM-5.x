@@ -40,6 +40,7 @@ else
 fi
 
 wclean metisDecomp
+wclean parmetisDecomp
 wclean decompositionMethods
 wclean decompose
 
